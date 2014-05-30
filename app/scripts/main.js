@@ -14,6 +14,7 @@ require.config({
     mustache: '../bower_components/mustache/mustache',
     stache: '../bower_components/requirejs-mustache/stache',
     'p-promise': '../bower_components/p/p',
+    selectize: '../bower_components/selectize/dist/js/standalone/selectize',
     speedTrap: '../bower_components/speed-trap/dist/speed-trap'
   },
   shim: {
@@ -26,6 +27,12 @@ require.config({
         'jquery'
       ],
       exports: 'Backbone'
+    },
+    selectize: {
+      deps: [
+        'jquery'
+      ],
+      exports: '$.selectize'
     }
   },
   stache: {

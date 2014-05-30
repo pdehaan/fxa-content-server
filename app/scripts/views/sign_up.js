@@ -11,7 +11,8 @@ define([
   'stache!templates/sign_up',
   'lib/session',
   'lib/password-mixin',
-  'lib/auth-errors'
+  'lib/auth-errors',
+  'selectize'
 ],
 function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors) {
   var t = BaseView.t;
@@ -54,6 +55,13 @@ function (_, BaseView, FormView, Template, Session, PasswordMixin, AuthErrors) {
         this.navigate('cannot_create_account');
         return false;
       }
+    },
+
+    afterRender: function () {
+      this.$el.find('#fxa-age-year').selectize({
+        create: true,
+        dropdownParent: 'body'
+      });
     },
 
     events: {
